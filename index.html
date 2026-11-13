@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SKN Druku 3D — Politechnika Łódzka</title>
+<meta name="description" content="Studenckie Koło Naukowe Druku 3D na Wydziale Mechanicznym Politechniki Łódzkiej — projekty, pracownia, ludzie i zapisy.">
+<meta property="og:title" content="SKN Druku 3D — Politechnika Łódzka">
+<meta property="og:description" content="Studenckie Koło Naukowe Druku 3D na Wydziale Mechanicznym Politechniki Łódzkiej — projekty, pracownia, ludzie i zapisy.">
+<meta property="og:locale" content="pl_PL">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og-image.jpg"><!-- po deployu podmienić na URL absolutny (https://<domena>/assets/img/og-image.jpg) — scrapery wymagają absolutnych -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SKN Druku 3D — nazwa koła i kostka 3D na kremowym tle">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SKN Druku 3D — Politechnika Łódzka">
+<meta name="twitter:description" content="Studenckie Koło Naukowe Druku 3D na Wydziale Mechanicznym Politechniki Łódzkiej — projekty, pracownia, ludzie i zapisy.">
+<meta name="twitter:image" content="assets/img/og-image.jpg">
+<meta name="theme-color" content="#FAF7F2">
+<link rel="icon" type="image/png" href="assets/img/logo-kolo.png">
+<!-- Preload fontów: zgrupowane przyjazdy = mniej pełnych relayoutów po FCP (font-swap ×6) -->
+<link rel="preload" href="assets/fonts/bricolage-grotesque-wght-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bricolage-grotesque-wght-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-wght-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-wght-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-400-latin-ext.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="styles.css?v=19">
+</head>
+<body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
+
+<header class="site-head">
+  <nav class="nav" data-nav aria-label="Nawigacja główna">
+    <a class="nav-brand" href="#start"><img src="assets/img/logo-kolo.webp" alt="" width="26" height="26">SKN&nbsp;Druku&nbsp;3D</a>
+    <ol class="nav-list" role="list">
+      <li><a href="#o-kole">O kole</a></li>
+      <li><a href="#projekty">Projekty</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#zarzad">Zarząd</a></li>
+    </ol>
+    <div class="nav-cta-slot"><a class="nav-cta" href="#zapisy">Zapisz się</a></div>
+  </nav>
+  <div class="print-progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</header>
+<div class="mobile-hud mono" aria-hidden="true"><span class="mh-text"></span></div>
+<p class="hud mono" aria-hidden="true">WARSTWA <span class="hud-num">00</span>/05 · <span class="hud-name">START</span><span class="hud-goal"></span></p>
+
+<main id="main">
+
+  <!-- SCENA 0 · #start — intencja: rozpoznanie koła w 5 s (nazwa, hasło, energia wizualna, wyjścia na social) -->
+  <section class="scene hero" id="start" data-scene aria-labelledby="hero-title">
+    <div class="layers" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="hero-inner">
+      <p class="hero-kicker mono">Studenckie Koło Naukowe · Wydział Mechaniczny PŁ</p>
+      <div class="hero-lockup">
+        <h1 id="hero-title"><span class="l"><span class="l-i">SKN</span></span> <span class="l l-tilt"><span class="l-i">Druku <em>3D</em></span></span></h1>
+      </div>
+      <p class="hero-tag">Każdy projekt to pętla: projekt, druk, test, modyfikacja&nbsp;— i od nowa.</p>
+      <ul class="social" role="list" aria-label="Media społecznościowe">
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=100089690734344" rel="noopener" aria-label="Facebook SKN Druku 3D">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.4h2.5l.4-2.9h-2.9V8.8c0-.84.23-1.41 1.44-1.41h1.54V4.8c-.27-.04-1.18-.11-2.24-.11-2.22 0-3.74 1.35-3.74 3.83v2.14H8v2.9h2.46V21h3.04Z"/></svg>
+          </a>
+        </li>
+        <li>
+          <button class="social-share" type="button" data-share aria-label="Udostępnij stronę">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 15V4m0 0L8 8m4-4 4 4"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+          </button>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/skn_druku_3d_pl/" rel="noopener" aria-label="Instagram SKN Druku 3D">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <a class="scroll-cue mono" href="#o-kole" aria-label="Przejdź do sekcji O kole">Przewiń<span aria-hidden="true"> ↓</span></a>
+  </section>
+
+  <!-- SCENA 1 · #o-kole — intencja: kontekst (kto, gdzie, od kiedy, jak wygląda spotkanie) + trzy liczby jako przynęta -->
+  <section class="scene about" id="o-kole" data-scene aria-labelledby="about-title">
+    <div class="wrap">
+      <span class="folio" aria-hidden="true">01</span>
+      <p class="scene-no mono" aria-hidden="true">01 · o kole</p>
+      <h2 id="about-title">Kim jesteśmy</h2>
+      <div class="about-cols">
+        <p class="reveal">Na spotkaniach drukujemy, naprawiamy drukarki i rozwijamy własne konstrukcje — od rozdrabniacza PETG po wielkoformatowego CoreXY składanego od podstaw. Szukamy nie tylko osób zakręconych samym drukiem: przydają się też projektanci instalacji artystycznych z&nbsp;3D&nbsp;w&nbsp;tle, ludzie od social mediów i&nbsp;osoby, które ogarną prowadzenie projektów. W&nbsp;skrócie: każdy jest mile widziany — doświadczenie nie jest wymagane.</p>
+        <p class="reveal">Mamy pracownię z&nbsp;drukarkami Bambu Lab, rozdrabniaczem i&nbsp;wytłaczarką do recyklingu PETG oraz suszarnią filamentu; w&nbsp;budowie stoi wielkoformatowy Rat Rig V-Core&nbsp;4, a&nbsp;z&nbsp;grantu „Łódź dla nauki” dochodzi SLS. Dołączenie jest proste: napisz do&nbsp;nas przez Messengera albo maila — reszta to już drukowanie.</p>
+      </div>
+      <dl class="stats reveal" aria-label="Koło w liczbach">
+        <div class="stat"><dt class="mono">od</dt><dd>2023</dd></div>
+        <div class="stat"><dt class="mono">drukarki w pracowni</dt><dd>4</dd></div>
+        <div class="stat"><dt class="mono">+ dostęp przez instytut</dt><dd>20+</dd></div>
+      </dl>
+      <figure class="photo-ph ph-32 reveal">
+        <img src="assets/img/bambulab.webp" alt="Drukarka Bambu Lab w pracowni koła, obok gotowe wydruki i zrębki po obróbce" width="1053" height="1400" loading="lazy">
+        <figcaption class="mono">Pracownia: Bambu Lab w&nbsp;akcji</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- SCENA 2 · #projekty — intencja: dowód kompetencji; przypięta sekcja, karty wjeżdżają poziomo przy scrollu -->
+  <section class="scene projects" id="projekty" data-scene aria-labelledby="projects-title">
+    <div class="pin-track">
+      <div class="pin-sticky">
+        <div class="wrap pin-head">
+          <span class="folio" aria-hidden="true">02</span>
+          <p class="scene-no mono" aria-hidden="true">02 · projekty</p>
+          <h2 id="projects-title">Co robimy</h2>
+          <p class="pin-hint mono" aria-hidden="true">przewiń — karty same jadą</p>
+          <p class="card-counter mono" aria-hidden="true">01 / 06</p>
+        </div>
+        <ul class="cards-row" tabindex="0" aria-label="Lista projektów">
+          <li class="card reveal">
+            <figure class="photo-ph ph-43">
+              <img src="assets/img/shredder.webp?v=2" alt="Rozdrabniacz do odpadów po druku 3D w obudowie z plexi" width="675" height="900" loading="lazy">
+            </figure>
+            <h3>Recykling PETG</h3>
+            <p>Odpady po wydrukach trafiają do rozdrabniacza i&nbsp;wracają jako granulat — stanowisko składa się z&nbsp;8&nbsp;500&nbsp;zł dotacji (Fundacja PŁ&nbsp;+&nbsp;IIM).</p>
+            <p class="tag mono">FDM · PETG</p>
+          </li>
+          <li class="card reveal">
+            <figure class="photo-ph ph-43">
+              <img src="assets/img/extruder-zpu3.webp?v=2" alt="Wytłaczarka filamentu z lejem zasypowym, zamocowana nad stołem" width="675" height="900" loading="lazy">
+            </figure>
+            <h3>Wytłaczarka ZPU3</h3>
+            <p>Własna wytłaczarka filamentu (5&nbsp;000&nbsp;zł od&nbsp;ZPU3) — z&nbsp;granulatu powstaje szpula, która zamyka pętlę recyklingu.</p>
+            <p class="tag mono">FDM · filament</p>
+          </li>
+          <li class="card reveal">
+            <figure class="photo-ph ph-43">
+              <img src="assets/img/pies-wozek.webp" alt="Pies w wydrukowanym wózku — projekt ARTUDITU" width="900" height="900" loading="lazy">
+            </figure>
+            <h3>Wózek dla psa</h3>
+            <p>Części do wózka dla niepełnosprawnych psów drukujemy dla koła ARTUDITU — ich projekt, nasze dysze.</p>
+            <p class="tag mono">FDM</p>
+          </li>
+          <li class="card reveal">
+            <figure class="photo-ph ph-43">
+              <svg viewBox="0 0 4 3" preserveAspectRatio="none" role="img" aria-label="Miejsce na zdjęcie projektu: drukowany dron (4:3)"><rect width="4" height="3" fill="var(--ph-fill)"/><path d="M0 0.75 H4 M0 1.5 H4 M0 2.25 H4" stroke="var(--accent)" stroke-width="0.03" opacity="0.35"/></svg>
+            </figure>
+            <h3>Drukowany dron</h3>
+            <p>Konstrukcja z&nbsp;drukowanymi częściami — projekt, który pokazujemy na&nbsp;wydarzeniach: od&nbsp;Formnext po&nbsp;Piknik Nauki.</p>
+            <p class="tag mono">FDM</p>
+          </li>
+          <li class="card reveal">
+            <figure class="photo-ph ph-43">
+              <img src="assets/img/dyplom-ldn.webp" alt="Dyplom za wygraną w konkursie Łódź dla nauki 2026" width="532" height="731" loading="lazy">
+            </figure>
+            <h3>SLS dla każdego</h3>
+            <p>Grant „Łódź dla nauki” (18&nbsp;000&nbsp;zł): druk spiekany z&nbsp;proszku — geometrie nieosiągalne dla FDM, bez&nbsp;podpór.</p>
+            <p class="tag mono">SLS</p>
+          </li>
+          <li class="card reveal">
+            <figure class="photo-ph ph-43">
+              <img src="assets/img/ratrig.webp?v=2" alt="Rama Rat Rig V-Core 4 w trakcie składania" width="675" height="900" loading="lazy">
+            </figure>
+            <h3>CoreXY Rat Rig V-Core 4</h3>
+            <p>Grant RKN 2026: wielkoformatowa drukarka CoreXY składana od&nbsp;podstaw — stanowisko dydaktyczno-prototypowe.</p>
+            <p class="tag mono">CoreXY</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENA 3 · #galeria — intencja: „jak to u nas wygląda"; 8 slotów + wyjście do pełnego albumu -->
+  <section class="scene gallery" id="galeria" data-scene aria-labelledby="gallery-title">
+    <div class="wrap">
+      <span class="folio" aria-hidden="true">03</span>
+      <p class="scene-no mono" aria-hidden="true">03 · galeria</p>
+      <h2 id="gallery-title">Jak to u nas wygląda</h2>
+      <div class="gallery-grid">
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-targi.webp" alt="Tłum odwiedzających przy stoisku koła na Targach Kół Naukowych" width="900" height="675" loading="lazy"><figcaption class="mono">Targi kół naukowych — nasze stoisko</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-statuetki.webp?v=2" alt="Wydrukowane statuetki z zębatkami — nagrody na mechaton" width="675" height="900" loading="lazy"><figcaption class="mono">Statuetki na mechaton</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-naprawa.webp?v=2" alt="Osoba serwisująca drukarkę Bambu Lab A1 przy stole warsztatowym" width="675" height="900" loading="lazy"><figcaption class="mono">Serwis A1 — naprawy własnymi rękami</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-filament.webp?v=2" alt="Ściana ze szpulami filamentu w pracowni" width="675" height="900" loading="lazy"><figcaption class="mono">Ściana filamentu</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-suszomator.webp?v=2" alt="Szafa do suszenia filamentu ze szpulami w środku" width="675" height="900" loading="lazy"><figcaption class="mono">Suszomator — szafa na filament</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-wyklad.webp" alt="Pełna sala audytoryjna podczas wykładu" width="900" height="675" loading="lazy"><figcaption class="mono">Umechanicznij się — pełna sala</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-warsztat.webp" alt="Członkowie koła pracujący przy komputerach w pracowni" width="900" height="600" loading="lazy"><figcaption class="mono">Warsztat w akcji</figcaption></figure>
+        <figure class="photo-ph ph-43 reveal"><img src="assets/img/g-pudla.webp?v=2" alt="Ściana z pustych pudeł po filamencie" width="675" height="900" loading="lazy"><figcaption class="mono">Archiwum po filamentach</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENA 4 · #zarzad — intencja: twarze i role; sloty z uwagą o zgodach -->
+  <section class="scene board" id="zarzad" data-scene aria-labelledby="board-title">
+    <div class="wrap">
+      <span class="folio" aria-hidden="true">04</span>
+      <p class="scene-no mono" aria-hidden="true">04 · zarząd</p>
+      <h2 id="board-title">Kto to robi</h2>
+      <ul class="board-grid" role="list">
+        <li class="board-card reveal">
+          <figure class="photo-ph ph-11"><img src="assets/img/portret-parfieniuk.webp" alt="" width="500" height="500" loading="lazy"></figure>
+          <h3>inż.&nbsp;Rafał Parfieniuk</h3>
+          <p class="mono role">Prezes</p>
+        </li>
+        <li class="board-card reveal">
+          <figure class="photo-ph ph-11"><svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><rect width="1" height="1" fill="var(--ph-fill)"/><circle cx="0.5" cy="0.38" r="0.16" stroke="var(--accent)" stroke-width="0.02" fill="none" opacity="0.5"/><path d="M0.2 0.85 A0.3 0.3 0 0 1 0.8 0.85" stroke="var(--accent)" stroke-width="0.02" fill="none" opacity="0.5"/></svg></figure>
+          <h3>Szymon Zagaj</h3>
+          <p class="mono role">Wiceprezes</p>
+        </li>
+        <li class="board-card reveal">
+          <figure class="photo-ph ph-11"><svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><rect width="1" height="1" fill="var(--ph-fill)"/><circle cx="0.5" cy="0.38" r="0.16" stroke="var(--accent)" stroke-width="0.02" fill="none" opacity="0.5"/><path d="M0.2 0.85 A0.3 0.3 0 0 1 0.8 0.85" stroke="var(--accent)" stroke-width="0.02" fill="none" opacity="0.5"/></svg></figure>
+          <h3>Krzysztof Jachowicz</h3>
+          <p class="mono role">Sekretarz</p>
+        </li>
+        <li class="board-card reveal">
+          <figure class="photo-ph ph-11"><svg viewBox="0 0 1 1" preserveAspectRatio="none" aria-hidden="true"><rect width="1" height="1" fill="var(--ph-fill)"/><circle cx="0.5" cy="0.38" r="0.16" stroke="var(--accent)" stroke-width="0.02" fill="none" opacity="0.5"/><path d="M0.2 0.85 A0.3 0.3 0 0 1 0.8 0.85" stroke="var(--accent)" stroke-width="0.02" fill="none" opacity="0.5"/></svg></figure>
+          <h3>prof.&nbsp;dr&nbsp;hab.&nbsp;inż.&nbsp;Jacek Sawicki</h3>
+          <p class="mono role">Opiekun koła</p>
+        </li>
+      </ul>
+      <p class="consent-note mono">Nazwiska i&nbsp;zdjęcia publikujemy za&nbsp;zgodą każdej osoby.</p>
+    </div>
+  </section>
+
+  <!-- SCENA 5 · #zapisy — intencja: moment decyzji; formularz za logowaniem uczelnianym (celowo) — ładny link + komunikat -->
+  <section class="scene join" id="zapisy" data-scene aria-labelledby="join-title">
+    <div class="wrap">
+      <span class="folio" aria-hidden="true">05</span>
+      <p class="scene-no mono" aria-hidden="true">05 · zapisy</p>
+      <h2 id="join-title">Twoja kolej</h2>
+      <p class="reveal">Uczymy wszystkiego od zera — sprzęt, warsztat i&nbsp;wsparcie są po&nbsp;naszej stronie; filament przynosisz własny, bo na&nbsp;jego finansowanie jeszcze pracujemy. Szukamy osób od&nbsp;drukowania i&nbsp;budowania, ale też takich, które poprowadzą nasze social media albo wezmą na&nbsp;siebie prowadzenie projektów.</p>
+      <div class="join-kit reveal">
+        <a class="join-cta" href="https://forms.cloud.microsoft/e/4hVY3GpDdt" target="_blank" rel="noopener">Otwórz formularz zapisu&nbsp;→</a>
+        <p class="join-note mono">Zapisy są tylko dla studentów Politechniki — po kliknięciu zaloguj się mailem uczelnianym&nbsp;PŁ.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- STOPKA — intencja: kontakt, social, afiliacja; drobny nawrót nawigacji -->
+<footer class="site-foot" aria-label="Stopka">
+  <div class="foot-wordmark" aria-hidden="true">SKN DRUKU 3D</div>
+  <div class="wrap foot-cols">
+    <div>
+      <p class="foot-brand">SKN Druku 3D</p>
+      <p class="mono">Wydział Mechaniczny · Politechnika&nbsp;Łódzka<!-- afiliacja: Instytut Informatyki Maszynowej (IIM), potwierdzona dokumentami koła --></p>
+      <div class="foot-affil">
+        <img src="assets/img/logo-wm.svg" alt="Logo Wydziału Mechanicznego Politechniki Łódzkiej" width="278" height="110" loading="lazy">
+        <img src="assets/img/logo-iim.png" alt="Logo Instytutu Informatyki Maszynowej Politechniki Łódzkiej" width="400" height="182" loading="lazy">
+      </div>
+      <p class="mono foot-mail"><a href="mailto:r.parfieniuk@samorzad.p.lodz.pl">r.parfieniuk@samorzad.p.lodz.pl</a></p>
+    </div>
+    <ul class="social foot-social" role="list" aria-label="Media społecznościowe — stopka">
+      <li><a href="https://www.facebook.com/profile.php?id=100089690734344" rel="noopener" aria-label="Facebook SKN Druku 3D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.4h2.5l.4-2.9h-2.9V8.8c0-.84.23-1.41 1.44-1.41h1.54V4.8c-.27-.04-1.18-.11-2.24-.11-2.22 0-3.74 1.35-3.74 3.83v2.14H8v2.9h2.46V21h3.04Z"/></svg></a></li>
+      <li><button class="social-share" type="button" data-share aria-label="Udostępnij stronę">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 15V4m0 0L8 8m4-4 4 4"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg></button></li>
+      <li><a href="https://www.instagram.com/skn_druku_3d_pl/" rel="noopener" aria-label="Instagram SKN Druku 3D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4A5.8 5.8 0 0 1 16.2 22H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg></a></li>
+      <li><a href="https://www.linkedin.com/company/skn-druku-3d" rel="noopener" aria-label="LinkedIn SKN Druku 3D">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-7.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a></li>
+    </ul>
+    <nav aria-label="Nawigacja skrótowa"><ol class="foot-nav mono" role="list">
+      <li><a href="#o-kole">O kole</a></li>
+      <li><a href="#projekty">Projekty</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#zarzad">Zarząd</a></li>
+      <li><a href="#zapisy">Zapisz się</a></li>
+    </ol></nav>
+  </div>
+  <div class="wrap print-meta mono">AKTUALIZACJA TREŚCI: <span data-placeholder>[PLACEHOLDER: data publikacji]</span> · WERSJA: <span data-placeholder>[PLACEHOLDER: SHA komita deployu]</span> · HOSTING: GITHUB PAGES · BEZ COOKIES · BEZ TRACKINGU · ŁÓDŹ</div>
+  <p class="print-note" aria-hidden="true">WYDRUK 2D · WARSTWY: 1 · SKN DRUKU 3D · Politechnika Łódzka</p>
+  <div class="build-plate" aria-hidden="true"></div>
+</footer>
+
+<script src="driver.js?v=17" defer></script>
+</body>
+</html>

@@ -1,0 +1,691 @@
+/* SKN Druku 3D — styles.css
+   Tokeny i kierunek: sites/skn-druku-3d/DESIGN.md (zatwierdzony 2026-11-01).
+   Kierunek „Warsztat w świetle dnia”: jasne ciepłe tło, jeden nasycony akcent,
+   wielka typografia display, ruch tylko transform/opacity. */
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url('assets/fonts/bricolage-grotesque-wght-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 600 800;
+  font-display: swap;
+  src: url('assets/fonts/bricolage-grotesque-wght-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('assets/fonts/instrument-sans-wght-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Instrument Sans';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('assets/fonts/instrument-sans-wght-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/jetbrains-mono-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --bg: #FAF7F2;
+  --fg: #1A1815;
+  --accent: #C2410C;       /* tekst/wypełnienia */
+  --accent-bright: #E8590C; /* wyłącznie duże elementy graficzne */
+  --muted: #6B6560;
+  --ph-fill: color-mix(in oklab, var(--bg), var(--muted) 10%);
+  --radius-1: 10px;
+  --radius-2: 16px;
+  --radius-3: 24px;
+  --shadow-1: 0 2px 8px rgba(26, 24, 21, 0.08);
+  --shadow-2: 0 12px 32px rgba(26, 24, 21, 0.12);
+  --font-display: 'Bricolage Grotesque', 'Instrument Sans', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1rem/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.mono { font-family: var(--font-mono); font-size: 0.8125rem; letter-spacing: 0.02em; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 100;
+  background: var(--fg); color: var(--bg);
+  padding: 0.5rem 1rem; border-radius: var(--radius-1);
+  transition: top 0.15s ease;
+}
+.skip-link:focus-visible { top: 1rem; }
+
+.wrap { max-width: 1100px; margin-inline: auto; padding-inline: clamp(1.25rem, 4vw, 2.5rem); }
+.wrap-narrow { max-width: 760px; }
+
+/* ——— Nawigacja ——— */
+.site-head {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(250, 247, 242, 0.92); /* fallback dla Safari bez color-mix */
+  background: color-mix(in oklab, var(--bg), transparent 8%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid color-mix(in oklab, var(--muted), transparent 72%);
+}
+.nav {
+  max-width: 1100px; margin-inline: auto;
+  padding: 0.75rem clamp(1.25rem, 4vw, 2.5rem);
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+.nav-brand {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 1.05rem; color: var(--fg); text-decoration: none; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 0.45rem;
+}
+.nav-brand img { display: block; border-radius: 6px; }
+.nav-list {
+  flex: 1 1 auto; min-width: 0;
+  display: flex; align-items: center; gap: 1.25rem; list-style: none; padding: 0;
+  overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain;
+}
+.nav-cta-slot { flex: none; }
+.nav-cta {
+  display: inline-block;
+  background: var(--accent); color: var(--bg);
+  padding: 0.45rem 1.1rem; border-radius: 999px;
+  font-weight: 600; text-decoration: none;
+}
+@media (hover: hover) { .nav-cta:hover { background: var(--accent); box-shadow: var(--shadow-1); } }
+.nav-list a { color: var(--fg); text-decoration: none; font-weight: 500; white-space: nowrap; }
+@media (hover: hover) { .nav-list a:not(.nav-cta):hover { color: var(--accent); } }
+
+/* ——— Scena 0: Hero ——— */
+.hero {
+  min-height: calc(100vh - 3.5rem); /* fallback dla Safari < 15.4 */
+  min-height: calc(100svh - 3.5rem); /* header sticky ok. 56px — cue nie schodzi pod fałd */
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: clamp(4rem, 10vh, 7rem) clamp(1.25rem, 4vw, 2.5rem) 5.5rem;
+}
+.hero-inner {
+  --h1-size: clamp(3rem, 9vw, 6.5rem); /* jeden hookup skali dla H1 i plakietki */
+  max-width: 1100px; margin-inline: auto; width: 100%; position: relative; z-index: 2;
+}
+.hero-kicker { color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 1.25rem; }
+.hero h1 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: var(--h1-size); /* H1 = nazwa koła — monumentalnie */
+  line-height: 1.02; letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+/* Lockup: nazwa + znak koła wyrównany do prawej, wysokość = wysokość bloku H1 (2 linie × 1.02);
+   kostka z prawdziwą alfą (biało→alpha z JPEG źródła); ≤767 znak znika (plakietkę niesie
+   nav-badge, a tło-nagłówek nie pobiera pliku poza desktopem) */
+.hero-lockup { position: relative; padding-right: calc(var(--h1-size) * 2.04 + clamp(1.5rem, 4vw, 3rem)); }
+.hero-lockup::after {
+  content: ""; position: absolute; right: 0; top: 50%; translate: 0 -50%;
+  height: calc(var(--h1-size) * 2.04); aspect-ratio: 1;
+  background: url("assets/img/logo-kolo-hero.webp") center / contain no-repeat;
+}
+.hero-tag { margin-top: 1.5rem; font-size: clamp(1.05rem, 2vw, 1.3rem); color: var(--muted); max-width: 46ch; }
+.social { list-style: none; padding: 0; display: flex; align-items: center; gap: 0.9rem; margin-top: 2rem; }
+.social a, .social button {
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border-radius: 999px; border: 1.5px solid color-mix(in oklab, var(--fg), transparent 78%);
+  color: var(--fg);
+  background: none; font: inherit; padding: 0; cursor: pointer;
+}
+.social a, .social button { position: relative; overflow: hidden; }
+.social a svg, .social button svg { position: relative; z-index: 1; }
+.social a::before, .social button::before { content: ""; position: absolute; inset: 0; background: var(--accent); transform: translateY(102%); }
+@media (prefers-reduced-motion: no-preference) { .social a::before, .social button::before { transition: transform 0.16s ease-out; } }
+@media (hover: hover) {
+  .social a:hover::before, .social button:hover::before { transform: translateY(0); }
+  .social a:hover, .social button:hover { color: var(--bg); border-color: var(--accent); }
+}
+.social a:focus-visible::before, .social button:focus-visible::before,
+.social a:active::before, .social button:active::before { transform: translateY(0); }
+.social a:focus-visible, .social button:focus-visible,
+.social a:active, .social button:active { color: var(--bg); border-color: var(--accent); }
+.scroll-cue {
+  position: absolute; left: 50%; bottom: 2rem; transform: translateX(-50%);
+  color: var(--muted); text-decoration: none; z-index: 2;
+  padding: 0.4rem 0.8rem; min-height: 24px;
+}
+.scroll-cue:hover { color: var(--accent); }
+
+/* Motyw warstw druku — dekoracyjny; „drukuje się" przy pierwszym scrollu (scale, driver) */
+.layers { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.layers span {
+  position: absolute; left: -10%; width: 120%; height: clamp(14px, 2.4vh, 22px);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-bright), var(--accent));
+  opacity: 0.10;
+  transform-origin: 0 50%;
+}
+.layers span:nth-child(1) { top: 12%; transform: rotate(-2deg); }
+.layers span:nth-child(2) { top: 24%; transform: rotate(1.5deg); opacity: 0.14; }
+.layers span:nth-child(3) { top: 41%; transform: rotate(-1deg); opacity: 0.07; }
+.layers span:nth-child(4) { top: 58%; transform: rotate(2deg); opacity: 0.07; }
+.layers span:nth-child(5) { top: 72%; transform: rotate(-1.5deg); opacity: 0.10; }
+.layers span:nth-child(6) { top: 86%; transform: rotate(1deg); opacity: 0.12; }
+
+/* ——— Sceny: rama wspólna ——— */
+.scene { padding-block: clamp(5.5rem, 12vh, 9rem); scroll-margin-top: 4rem; }
+.scene-no { color: var(--accent); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 0.75rem; }
+.scene h2 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 3.1rem); line-height: 1.05; letter-spacing: -0.015em;
+  margin-bottom: clamp(1.75rem, 4vh, 3rem);
+}
+
+/* Sloty placeholderów — jawne, nie stylowe */
+[data-placeholder] { color: var(--muted); }
+.link-slot {
+  font-family: var(--font-mono); font-size: 0.875rem;
+  border-bottom: 1.5px dashed color-mix(in oklab, var(--muted), transparent 40%);
+  padding-bottom: 1px;
+}
+
+.photo-ph { position: relative; border-radius: var(--radius-2); overflow: hidden; box-shadow: var(--shadow-1); }
+.photo-ph svg { display: block; width: 100%; height: 100%; }
+.photo-ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.ph-32 { aspect-ratio: 3 / 2; }
+.ph-43 { aspect-ratio: 4 / 3; }
+.ph-11 { aspect-ratio: 1 / 1; }
+.photo-ph figcaption {
+  position: absolute; left: 0.75rem; bottom: 0.75rem; right: 0.75rem;
+  font-size: 0.75rem; color: var(--fg);
+  width: fit-content; margin-right: auto;
+  background: color-mix(in oklab, var(--bg), transparent 10%);
+  padding: 0.25rem 0.6rem; border-radius: var(--radius-1);
+}
+
+/* ——— Scena 1: O kole ——— */
+.about-cols {
+  display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  margin-bottom: 2.5rem; max-width: 62rem;
+}
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem clamp(1.5rem, 5vw, 4rem); margin-bottom: 3rem; }
+.stat dt { color: var(--accent); text-transform: uppercase; letter-spacing: 0.12em; }
+.stat dd {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.9rem, 3.4vw, 2.7rem); line-height: 1.15; overflow-wrap: anywhere;
+}
+.stat dd[data-placeholder] { font-size: 1.15rem; line-height: 1.4; } /* slot mały, realna liczba — wielka */
+.about .photo-ph { max-width: 62rem; }
+
+/* ——— Scena 2: Projekty (pin + poziomy wjazd) ——— */
+.projects { padding-block: 0; }
+.pin-track { height: 340vh; position: relative; }
+.pin-sticky {
+  position: sticky; top: 0; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
+  overflow: hidden;
+  padding-block: 4.5rem 2.5rem;
+}
+.pin-head { width: 100%; margin-bottom: 1.5rem; }
+.pin-hint { color: var(--muted); margin-top: 0.5rem; }
+.cards-row {
+  list-style: none; margin: 0; padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem) 1rem;
+  display: flex; gap: 1.25rem; width: max-content;
+  overflow-x: auto; /* bez JS: natywny przewij poziomy — karty zawsze osiągalne */
+}
+.card {
+  position: relative; /* kotwica klamer narożnych */
+  flex: 0 0 min(78vw, 330px);
+  background: var(--bg);
+  border: 1px solid color-mix(in oklab, var(--muted), transparent 72%);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-1);
+  padding: 0.9rem 0.9rem 1.2rem;
+  display: flex; flex-direction: column; gap: 0.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+@media (hover: hover) {
+  .card:hover { transform: translateY(-6px); box-shadow: var(--shadow-2); border-color: color-mix(in oklab, var(--accent), transparent 25%); }
+}
+.card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; line-height: 1.2; }
+.card p { font-size: 0.95rem; }
+/* Zdjęcia kart na sztywno 1:1 (user 2026-11-03): kwadratowy crop nie psuje kadrów;
+   niskie okna desktopowe kompensują szerokością karty i kompakcją głowicy (media niżej) */
+.cards-row .card .photo-ph { aspect-ratio: 1 / 1; }
+.tag {
+  margin-top: auto; align-self: flex-start;
+  color: var(--accent); border: 1.5px solid color-mix(in oklab, var(--accent), transparent 55%);
+  border-radius: 999px; padding: 0.15rem 0.7rem; font-size: 0.75rem;
+}
+
+/* Choreografia pozioma — sterowana przez driver.js (scroll+rAF, transform-only).
+   CSS trzyma tylko stan: overflow ukryty na desktopie przy żywym JS. */
+@media (min-width: 768px) {
+  .js .cards-row { overflow: hidden; }
+}
+
+/* ——— Scena 3: Galeria ——— */
+.gallery-grid {
+  display: grid; gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  margin-bottom: 2rem;
+}
+@media (hover: hover) { .gallery-grid .photo-ph:hover svg, .gallery-grid .photo-ph:hover img { transform: scale(1.03); transition: transform 0.35s ease; } }
+
+/* ——— Scena 4: Zarząd ——— */
+.board-grid {
+  list-style: none; padding: 0;
+  display: grid; gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); /* auto-fit: 4 karty rozłożone równo, bez martwych torów */
+}
+.board-card { text-align: center; }
+.board-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-top: 0.8rem; }
+.board-card .role { color: var(--accent); font-size: 0.78rem; margin-top: 0.15rem; }
+.board-card .photo-ph { max-width: 170px; margin-inline: auto; border-radius: var(--radius-2); }
+.consent-note { color: var(--muted); margin-top: 2rem; }
+
+/* ——— Scena 5: Zapisy — formularz żyje za logowaniem uczelnianym, więc kit = kremowa płyta z linkiem ——— */
+.join-kit {
+  background: var(--bg);
+  border: 1px solid color-mix(in oklab, var(--muted), transparent 65%);
+  border-radius: var(--radius-2); box-shadow: var(--shadow-1);
+  padding: 1.5rem; margin-block: 1.75rem 1rem;
+  max-width: 672px;
+}
+.join-cta {
+  display: inline-block;
+  background: var(--accent); color: var(--bg);
+  padding: 0.65rem 1.4rem; border-radius: 999px;
+  font-weight: 700; font-size: 1.2rem; text-decoration: none;
+}
+@media (hover: hover) { .join-cta:hover { box-shadow: var(--shadow-1); filter: brightness(1.05); } }
+.join-cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.join .join-kit :focus-visible { outline-color: var(--accent); }
+.join-note { margin-top: 0.85rem; color: var(--muted); }
+
+/* ——— Stopka ——— */
+.site-foot {
+  border-top: 1px solid color-mix(in oklab, var(--muted), transparent 72%);
+  padding-block: 3rem 2.5rem;
+}
+.foot-cols {
+  display: grid; gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  align-items: start;
+}
+.foot-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+.foot-cols .mono { color: var(--muted); margin-top: 0.3rem; }
+.foot-social { margin-top: 0.5rem; flex-wrap: wrap; row-gap: 0.6rem; }
+.foot-nav { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
+.foot-nav a { color: var(--fg); text-decoration: none; display: inline-block; min-height: 24px; }
+.foot-mail a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in oklab, var(--accent), transparent 30%); }
+@media (hover: hover) { .foot-mail a:hover { text-decoration-color: var(--accent); } }
+.foot-affil { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1.1rem; }
+.foot-affil img { display: block; height: 88px; width: auto; }
+.foot-nav a:hover { color: var(--accent); }
+
+/* ——— Reveal (dodaje driver; bez JS treść domyślnie widoczna) ——— */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* ——— Degradacje: wąskie ekrany → dokument pionowy ——— */
+@media (max-width: 767.98px) {
+  .pin-track { height: auto; }
+  .pin-sticky { position: static; min-height: 0; overflow: visible; }
+  .pin-hint { display: none; }
+  /* Znaka koła nie ma obok H1 na wąskim ekranie — niesie ją nav-badge */
+  .hero-lockup { padding-right: 0; }
+  .hero-lockup::after { content: none; }
+  /* Zapisy: CTA na pełną szerokość — łatwy palec, komunikat o logowaniu pod spodem */
+  .join-cta { display: block; text-align: center; padding: 0.8rem 1.4rem; }
+  .join-kit { padding: 1.25rem; }
+  .cards-row {
+    flex-direction: column; width: auto; overflow: visible;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .card { flex-basis: auto; }
+  .hero { padding-bottom: 4.5rem; }
+}
+
+/* ——— Degradacje: reduced-motion → dokument statyczny ——— */
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .layers span, .card, .gallery-grid .photo-ph svg { animation: none !important; transition: none !important; }
+  .skip-link { transition: none; }
+  .pin-track { height: auto; }
+  .pin-sticky { position: static; overflow: visible; }
+  .pin-hint { display: none; }
+  .cards-row {
+    transform: none !important; animation: none !important;
+    flex-direction: column; width: auto; overflow: visible !important;
+  }
+  html { scroll-behavior: auto; }
+  .print-progress { display: none; }
+  .mobile-hud { transition: none; }
+}
+
+/* ——— Pakiet A (burza mózgów 2026-11-01): sygnaturowy ruch i momenty ——— */
+
+/* H1 „misprint": linie wjeżdżają z maski, linia „mylimy się" przechyla się i prostuje */
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero .l { display: block; overflow: hidden; }
+  .js .hero .l-i { display: block; animation: line-in 0.65s cubic-bezier(0.2, 0.7, 0.25, 1) both; }
+  .js .hero .l:nth-child(2) .l-i { animation-delay: 0.12s; }
+  .js .hero .l:nth-child(3) .l-i { animation-delay: 0.24s; }
+  .js .hero .l-tilt .l-i { animation-name: line-in-tilt; animation-duration: 1.05s; }
+  .js .layers span { scale: 0 1; transition: scale 0.3s ease; }
+  .js .layers span.done { scale: 1 1; }
+  .js .card.is-in .photo-ph::after { animation: card-sweep 0.7s ease-out 0.35s both; }
+  .js .card:hover .photo-ph::after { animation-name: card-sweep-hover; animation-duration: 0.45s; animation-delay: 0s; }
+  .photo-ph { transition: opacity 0.25s ease; }
+  .board-card { transition: opacity 0.25s ease; }
+}
+@keyframes line-in { from { transform: translateY(112%); } }
+@keyframes line-in-tilt {
+  0% { transform: translateY(112%); }
+  55% { transform: none; }
+  75% { transform: rotate(0.7deg); }
+  100% { transform: none; }
+}
+@keyframes card-sweep {
+  0% { transform: translateX(-110%); opacity: 0.8; }
+  100% { transform: translateX(110%); opacity: 0; }
+}
+.card .photo-ph::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--accent-bright), transparent);
+  transform: translateX(-110%);
+}
+
+/* Pasek postępu „druku" pod nawigacją (stan; bez JS i przy reduce — schowany) */
+.print-progress { display: none; }
+.js .print-progress {
+  display: flex; gap: 2px; padding-inline: 2px;
+  position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+}
+.js .print-progress span { flex: 1; background: var(--accent); scale: 0 1; transform-origin: left; }
+.js .print-progress span.done { scale: 1 1; transition: scale 0.2s ease; }
+
+/* HUD warstw — odczyt stanu (desktop) */
+.hud { display: none; }
+.js .hud {
+  display: block; position: fixed; left: 1rem; bottom: 1rem; z-index: 40;
+  color: var(--accent);
+  background: color-mix(in oklab, var(--bg), transparent 10%);
+  border: 1px solid color-mix(in oklab, var(--accent), transparent 60%);
+  border-radius: 6px; padding: 0.3rem 0.55rem;
+}
+@media (max-width: 1023.98px) { .js .hud { display: none; } }
+
+/* Licznik kart w pinczu */
+.card-counter { color: var(--accent); margin-top: 0.35rem; }
+@media (max-width: 767.98px) { .card-counter { display: none; } }
+
+/* Folio — wielki numer sceny w lewym marginesie */
+.scene .wrap { position: relative; }
+.folio {
+  position: absolute; top: 0.4em; right: calc(100% + 1.5rem);
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(4rem, 6.5vw, 6rem); line-height: 1;
+  color: var(--accent); opacity: 0.9;
+}
+@media (max-width: 1439.98px) { .folio { display: none; } } /* 1366 wchodził w folio bez marginesu — przycięte cyfry */
+
+/* „Gorąca warstwa": scena zapisów jako jedyny pełny akcent na stronie */
+.join { background: var(--accent); color: var(--bg); }
+.join .scene-no, .join h2, .join .folio, .join [data-placeholder] { color: var(--bg); }
+.join .folio { opacity: 0.3; }
+.join :focus-visible { outline-color: var(--bg); }
+
+/* Spotlight: dotyk nie ma hovera — na dotyku zostaje rytm pionowy; focus-within dla klawiatury */
+@media (hover: hover) {
+  .gallery-grid:has(.photo-ph:hover) .photo-ph:not(:hover),
+  .board-grid:has(.board-card:hover) .board-card:not(:hover) { opacity: 0.65; }
+}
+.gallery-grid:has(:focus-within) .photo-ph:not(:focus-within),
+.board-grid:has(:focus-within) .board-card:not(:focus-within) { opacity: 0.65; }
+
+/* Stopka: podcięty wordmark + „płyta robocza" */
+.foot-wordmark {
+  overflow: hidden; height: 0.72em; margin-bottom: 0.75rem;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(2rem, 11vw, 12rem); line-height: 0.95;
+  letter-spacing: -0.02em; white-space: nowrap; user-select: none;
+  color: var(--accent-bright);
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+.build-plate { height: 7px; background: var(--accent); }
+
+/* ——— Runda 2.5: mobile experience ——— */
+
+/* H1 na wąskich ekranach: bez masek (wewnętrzne łamanie linii ciąło tekst) —
+   całe linie-chunki wjeżdżają fade+rise */
+@media (prefers-reduced-motion: no-preference) and (max-width: 767.98px) {
+  .js .hero .l { display: inline-block; overflow: visible; animation: line-rise 0.7s ease both; }
+  .js .hero .l:nth-child(2) { animation-delay: 0.1s; }
+  .js .hero .l:nth-child(3) { animation-delay: 0.2s; }
+  .js .hero .l-i { animation: none; }
+}
+@keyframes line-rise { from { opacity: 0; transform: translateY(24px); } }
+
+/* Afordancja przewijanego navu: zanik prawej krawędzi (od 360 px — poniżej lista i tak
+   mieści się w slincie i znikałaby w całości) */
+@media (max-width: 767.98px) and (min-width: 360px) {
+  .nav-list {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent);
+  }
+  /* duplikaty i drobny druk stopki */
+  .foot-brand, .print-meta { display: none; }
+}
+
+/* Mikro-HUD mobilny → dolny pas stanu (thumb-zone): persistent po hero, safe-area */
+.mobile-hud { display: none; }
+@media (max-width: 1023.98px) {
+  .js .mobile-hud {
+    display: block; position: fixed; bottom: 0; left: 0; right: 0; z-index: 45;
+    background: var(--bg); color: var(--accent); font-size: 0.72rem; letter-spacing: 0.04em;
+    padding: 0.32rem clamp(1.25rem, 4vw, 2.5rem);
+    padding-bottom: max(0.32rem, env(safe-area-inset-bottom));
+    border-top: 1px solid color-mix(in oklab, var(--accent), transparent 72%);
+    opacity: 0; transition: opacity 0.25s ease; pointer-events: none;
+  }
+  .js .mobile-hud.is-active { opacity: 1; }
+  .site-foot { padding-bottom: calc(2.5rem + 44px); }
+}
+
+/* ——— Runda 2: domknięcie systemu druku ——— */
+
+::selection { background: var(--accent); color: var(--bg); }
+.join ::selection { background: var(--bg); color: var(--accent); }
+
+html {
+  scrollbar-width: thin; scrollbar-color: color-mix(in oklab, var(--accent), var(--fg) 30%) var(--bg);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Spoina warstwy: 1 px linia na granicy scen (pełna szerokość, tint — nigdy akcent,
+   bez etykiet — numerację niosą folio i kicker). Nie na hero i gorącej warstwie. */
+.scene { position: relative; }
+.scene::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: color-mix(in oklab, var(--fg), transparent 72%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .scene::before { transform: scaleX(0); transform-origin: left; transition: transform 0.45s ease; }
+  .js .scene.is-live::before { transform: scaleX(1); }
+}
+.hero.scene::before { display: none; } /* pod headerem nie potrzeba drugiej linii */
+.join.scene::before { background: color-mix(in oklab, var(--bg), transparent 72%); }
+
+/* Hover kart: przejazd głowicy (spotlight zostaje na galerii/zarządzie) */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .js .card:hover .photo-ph::after { animation: card-sweep-hover 0.45s ease-out; }
+}
+@keyframes card-sweep-hover {
+  0% { transform: translateX(-110%); opacity: 0.8; }
+  100% { transform: translateX(110%); opacity: 0; }
+}
+
+/* aria-current w nav — kontur → wypełnienie */
+.nav-list a.is-current { color: var(--accent); position: relative; }
+.nav-list a.is-current::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; background: var(--accent); }
+
+/* Klamry narożne — tylko „płyty zdjęciowe" (karty projektów + kafelki galerii),
+   wewnątrz krawędzi, nigdy na blokach tekstu (reguła użycia w DESIGN.md) */
+.card::before, .card::after,
+.gallery-grid .photo-ph::before, .gallery-grid .photo-ph::after {
+  content: ""; position: absolute; width: 10px; height: 10px; pointer-events: none; z-index: 2;
+}
+.card::before, .gallery-grid .photo-ph::before { top: 6px; left: 6px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+.card::after, .gallery-grid .photo-ph::after { bottom: 6px; right: 6px; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+
+/* Formatka stopki — tylko fakty z konstrukcji */
+.print-meta {
+  border-top: 1px solid color-mix(in oklab, var(--muted), transparent 72%);
+  margin-top: 2.25rem; padding-top: 1rem;
+  color: var(--muted); font-size: 0.72rem; letter-spacing: 0.04em;
+}
+.print-note { display: none; }
+.copy-note { color: var(--accent); margin-left: 0.5rem; }
+
+/* ——— Runda 3: natywny wydruk na mobile — talia projektów + stos arkuszy ——— */
+html:not(.js) [data-share] { display: none; }
+.card:active { border-color: var(--accent); box-shadow: var(--shadow-1); }
+.nav-cta:active { filter: brightness(0.88); }
+.join-cta:active { filter: brightness(0.88); }
+
+/* Niskie okna desktopowe (skalowania Windows / pasek przeglądarki → ~560–819 px wysokości):
+   PIN ZOSTAJE — scroll pionowy jest konsumowany przez sekcję (wymóg usera 2026-11-03);
+   pionowe zmieszczenie z kwadratowymi zdjęciami pilnują węższe karty i kompaktowa głowica */
+@media (min-width: 768px) and (max-height: 819px) {
+  .pin-sticky { padding-block: 4.125rem 1.5rem; justify-content: flex-start; } /* top ≥ navu (65 px): kicker nie chowa się pod paskiem */
+  .pin-head { margin-bottom: 0.25rem; }
+  .pin-hint, .card-counter { display: none; }
+  .pin-head h2 { font-size: 2.3rem; }
+  .cards-row .card { flex-basis: min(46vw, 230px); }
+  .cards-row .card p { font-size: 0.8rem; line-height: 1.4; }
+  .cards-row { padding-bottom: 1.5rem; } /* prześwit dla desktopowego HUD-a w rogu */
+  .gallery .wrap { padding-top: 2.5rem; }
+}
+
+/* Ekstremalnie niskie okna (~540–599 px): dodatkowo kicker głowicy schowany
+   (numerację niosą folio i h2) — kwadraty mieszczą się z pinem nawet tu */
+@media (min-width: 768px) and (max-height: 599px) {
+  .pin-sticky { padding-block: 4.125rem 0.5rem; }
+  .pin-head .scene-no { display: none; }
+  .pin-head { margin-bottom: 0.25rem; }
+  .cards-row .card { flex-basis: min(46vw, 195px); }
+  .cards-row { padding-bottom: 0.5rem; }
+  .gallery .wrap { padding-top: 1.5rem; }
+}
+
+/* Wąski desktop: podnieś treść galerii dodatkowo (szerszy tekst = niżej w strefie chipa) */
+@media (min-width: 768px) and (max-width: 1279.98px) and (max-height: 819px) {
+  .gallery .wrap { padding-top: 1.25rem; }
+}
+
+/* print-meta omija strefę chipa HUD-a przy ≤1680 px — na pełnym scrollu chip nie może
+   zacinać pierwszego słowa (at-rest case QA: stopka 1600×900) */
+@media (min-width: 1024px) and (max-width: 1680px) {
+  .print-meta { padding-left: max(0px, calc(850px - 50vw)); }
+}
+
+@media (max-width: 767.98px) {
+  main { overflow-x: clip; }
+  /* Krawędź arkusza przejmuje rolę spoiny */
+  .scene::before { display: none; }
+  /* Stos arkuszy: każda scena deponuje się na poprzedniej (scroll = oś Z) */
+  .js .scene:not(.hero) {
+    background: var(--bg);
+    border-radius: var(--radius-3) var(--radius-3) 0 0;
+    box-shadow: 0 -10px 28px rgba(26, 24, 21, 0.16);
+    margin-top: -26px;
+    padding-top: calc(2.75rem + 26px);
+  }
+  .js .scene.join { background: var(--accent); } /* gorąca warstwa pozostaje akcentem */
+  .js #o-kole { z-index: 2; }
+  .js #projekty { z-index: 3; }
+  .js #galeria { z-index: 4; }
+  .js #zarzad { z-index: 5; }
+  .js #zapisy { z-index: 6; }
+  /* Talia projektów: karty deponują się jedna na drugiej (sticky = pozycja, nie animacja) */
+  @media (prefers-reduced-motion: no-preference) {
+    .js .cards-row .card { position: sticky; }
+    .js .cards-row .card:nth-child(1) { top: calc(3.75rem + 0px); }
+    .js .cards-row .card:nth-child(2) { top: calc(3.75rem + 10px); }
+    .js .cards-row .card:nth-child(3) { top: calc(3.75rem + 20px); }
+    .js .cards-row .card:nth-child(4) { top: calc(3.75rem + 30px); }
+    .js .cards-row .card:nth-child(5) { top: calc(3.75rem + 40px); }
+    .js .cards-row .card:nth-child(6) { top: calc(3.75rem + 50px); }
+  }
+}
+
+/* ——— Wydruk 2D: strona o druku 3D drukuje się i wie o tym ——— */
+@media print {
+  .site-head, .hud, .mobile-hud, .print-progress, .scroll-cue, .layers, .folio, .foot-wordmark,
+  .build-plate, .pin-hint, .card-counter, .join-kit,
+  .print-progress span, .print-meta { display: none !important; }
+  h2, .scene-no { break-after: avoid; }
+  figure, .board-card, .card { break-inside: avoid; }
+  body { background: #fff; color: #000; }
+  .hero, .scene { min-height: auto; padding-block: 1.5rem; }
+  .hero .l { overflow: visible; }
+  .hero .l-i { animation: none !important; transform: none !important; }
+  .join { background: #fff; color: #000; border: 2px solid #000; }
+  .join h2, .join .scene-no, .join .folio { color: #000 !important; }
+  .join [data-placeholder] { color: #000; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .pin-track { height: auto !important; }
+  .pin-sticky { position: static !important; overflow: visible !important; }
+  .cards-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; width: auto; overflow: visible !important; transform: none !important; }
+  .cards-row .card { position: static !important; }
+  .scene { margin-top: 0 !important; border-radius: 0 !important; box-shadow: none !important; }
+  .card { flex: none; break-inside: avoid; }
+  .social a[href]::after { content: none !important; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.75em; color: #444; }
+  .print-note {
+    display: block; font-family: var(--font-mono); font-size: 0.75rem;
+    padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem); border-top: 1px solid #000;
+  }
+}
